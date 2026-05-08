@@ -1,6 +1,7 @@
 ---
 name: topolift-negotiation-atoms-lite
-version: 1.2.0
+displayName: "TopoLift: Negotiation Skill"
+version: 1.2.1
 description: |
   TopoLift's negotiation dialect for AI agents. The atom corpus stays
   server-side; this skill teaches your agent the public closed vocabulary
@@ -16,11 +17,11 @@ tags:
   - dialect
   - structural-reasoning
 category: agent-to-agent-protocols
-license: Apache-2.0
+license: MIT-0
 homepage: https://topolift.ai
 ---
 
-# TopoLift Negotiation Atoms — Lite Edition
+# TopoLift: Negotiation Skill
 
 This is the public dialect skill for **TopoLift atom-grounded negotiation
 reasoning**. The atom corpus itself stays on TopoLift's GPU; what travels —

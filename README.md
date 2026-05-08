@@ -1,4 +1,4 @@
-# TopoLift Negotiation Atoms — Lite Edition (v1.2)
+# TopoLift: Negotiation Skill (v1.2)
 
 The public dialect skill for **TopoLift atom-grounded negotiation reasoning**.
 
