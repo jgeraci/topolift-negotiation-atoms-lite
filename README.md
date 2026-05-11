@@ -1,10 +1,10 @@
-# TopoLift: Negotiation Skill (v1.2)
+# TopoLift: Negotiation Skill (v1.2.2)
 
 The public dialect skill for **TopoLift atom-grounded negotiation reasoning**.
 
 The atom corpus stays on TopoLift's GPU. What this skill ships — and teaches
 your agent — is the public **dialect**: the closed vocabulary in which
-TopoLift speaks, plus the three ways to call the live reasoning API.
+TopoLift speaks, plus the four ways to call the live reasoning API.
 
 ## What you get
 
@@ -15,6 +15,10 @@ When an MCP-aware agent loads this skill, it learns to read TopoLift's
   `bridge_pivots[]`, `topology_signals{}`) drawn from a closed vocabulary
 - Prose with inline `[Cluster_X#strategy1,strategy2]` citation tokens
   anchoring every claim to the cluster + load-bearing atoms that drove it
+- A `citation_grounding` audit field verifying every citation against the
+  actual retrieval set + atom strings — hallucinations are surfaced as
+  issues, so your agent can branch on `.grounded` to decide whether to
+  trust the prose
 
 ## Live dialect endpoint
 
@@ -24,9 +28,24 @@ curl https://api.topolift.ai/v1/dialect
 
 No auth. No rate limit. Returns the canonical vocabulary your agent needs.
 
-## Three install paths
+## Four install paths
 
-### MCP (Claude Code / Cursor / Agents SDK)
+### Hosted MCP endpoint (lowest friction — no install)
+
+Point any MCP-compatible client (Claude Code, Cursor, Agents SDK) at:
+
+```
+https://mcp.topolift.ai/mcp
+```
+
+Claude Code:
+
+```bash
+claude mcp add topolift --transport http https://mcp.topolift.ai/mcp \
+  --header "Authorization: Bearer tl-..."
+```
+
+### MCP via pip (fully local stdio)
 
 ```bash
 pip install topolift-mcp
@@ -44,7 +63,8 @@ curl -X POST https://api.topolift.ai/v1/negotiate \
   -d '{...}'
 ```
 
-Plans: $50 one-time / $49 mo / $99 mo unlimited. Buy at <https://topolift.ai>.
+**$10 for 10 calls.** One-time payment via Stripe, no subscription, keys
+provisioned immediately. Buy at <https://topolift.ai>.
 
 ### x402 pay-per-call (autonomous agents)
 
@@ -63,10 +83,11 @@ dialect itself (the vocabulary published at `/v1/dialect`) is open and stable.
 
 ## Links
 
+- **Hosted MCP**: <https://mcp.topolift.ai/mcp>
 - **Site**: <https://topolift.ai>
 - **API**: <https://api.topolift.ai>
 - **Live dialect**: <https://api.topolift.ai/v1/dialect>
-- **MCP server**: <https://github.com/TopoLift/topolift-mcp>
+- **MCP server source**: <https://github.com/TopoLift/topolift-mcp>
 - **PyPI**: <https://pypi.org/project/topolift-mcp/>
 - **Official MCP registry**: <https://registry.modelcontextprotocol.io/v0/servers?search=topolift>
 - **Contact**: atoms@topolift.ai
